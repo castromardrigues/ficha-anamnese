@@ -1,19 +1,116 @@
 /* =====================================================
-   CONFIGURAÇÃO
+   LIGIANE GOULART - ANAMNESE ESTÉTICA
+   ENVIO POR EMAILJS
 ===================================================== */
 
-const DESTINO_EMAIL = "ligianecastro84@gmail.com";
 
-const FORM_ENDPOINT =
-  `https://formsubmit.co/ajax/${DESTINO_EMAIL}`;
+/* =====================================================
+   CONFIGURAÇÃO DO EMAILJS
+===================================================== */
+
+const EMAILJS_PUBLIC_KEY =
+  "ZPigYmgLLUaOcH8GV";
+
+const EMAILJS_SERVICE_ID =
+  "182309";
+
+const EMAILJS_TEMPLATE_ID =
+  "template_9exnh47";
+
+const DESTINO_EMAIL =
+  "ligianecastro84@gmail.com";
+
+
+/* =====================================================
+   ESTADO DO SITE
+===================================================== */
 
 let cadastro = {};
+
 let areaAtual = "";
+
 let passoAtual = 1;
 
 
 /* =====================================================
-   DADOS GERAIS DAS FICHAS
+   CARREGAR EMAILJS AUTOMATICAMENTE
+===================================================== */
+
+function carregarEmailJS() {
+
+  return new Promise((resolve, reject) => {
+
+    if (
+      typeof emailjs !== "undefined"
+    ) {
+
+      emailjs.init({
+        publicKey: EMAILJS_PUBLIC_KEY
+      });
+
+      resolve();
+
+      return;
+
+    }
+
+
+    const script =
+      document.createElement("script");
+
+
+    script.src =
+      "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
+
+
+    script.onload = () => {
+
+      emailjs.init({
+        publicKey: EMAILJS_PUBLIC_KEY
+      });
+
+      resolve();
+
+    };
+
+
+    script.onerror = () => {
+
+      reject(
+        new Error(
+          "Não foi possível carregar o EmailJS."
+        )
+      );
+
+    };
+
+
+    document.head.appendChild(
+      script
+    );
+
+  });
+
+}
+
+
+/* =====================================================
+   INICIAR EMAILJS
+===================================================== */
+
+let emailJSPronto =
+  carregarEmailJS().catch(error => {
+
+    console.error(
+      "Erro ao iniciar EmailJS:",
+      error
+    );
+
+  });
+
+
+/* =====================================================
+   DADOS GERAIS
 ===================================================== */
 
 const commonSteps = [
@@ -23,19 +120,70 @@ const commonSteps = [
 
     fields: [
 
-      ["text", "cpf", "CPF"],
-      ["text", "rg", "R.G."],
-      ["text", "nascimento", "Data de nascimento"],
-      ["text", "profissao", "Profissão"],
-      ["text", "estado_civil", "Estado civil"],
-      ["text", "endereco", "Endereço"],
-      ["text", "bairro", "Bairro"],
-      ["text", "cidade", "Cidade"],
-      ["text", "estado", "Estado"],
-      ["text", "cep", "CEP"]
+      [
+        "text",
+        "cpf",
+        "CPF"
+      ],
+
+      [
+        "text",
+        "rg",
+        "R.G."
+      ],
+
+      [
+        "text",
+        "nascimento",
+        "Data de nascimento"
+      ],
+
+      [
+        "text",
+        "profissao",
+        "Profissão"
+      ],
+
+      [
+        "text",
+        "estado_civil",
+        "Estado civil"
+      ],
+
+      [
+        "text",
+        "endereco",
+        "Endereço"
+      ],
+
+      [
+        "text",
+        "bairro",
+        "Bairro"
+      ],
+
+      [
+        "text",
+        "cidade",
+        "Cidade"
+      ],
+
+      [
+        "text",
+        "estado",
+        "Estado"
+      ],
+
+      [
+        "text",
+        "cep",
+        "CEP"
+      ]
 
     ]
+
   },
+
 
   {
     title: "Hábitos e saúde",
@@ -58,7 +206,10 @@ const commonSteps = [
         "radio",
         "cosmeticos",
         "Utilização de cosméticos",
-        ["Sim", "Não"]
+        [
+          "Sim",
+          "Não"
+        ]
       ],
 
       [
@@ -71,7 +222,10 @@ const commonSteps = [
         "radio",
         "sol",
         "Exposição ao sol",
-        ["Sim", "Não"]
+        [
+          "Sim",
+          "Não"
+        ]
       ],
 
       [
@@ -84,7 +238,10 @@ const commonSteps = [
         "radio",
         "filtro_solar",
         "Utiliza filtro solar",
-        ["Sim", "Não"]
+        [
+          "Sim",
+          "Não"
+        ]
       ],
 
       [
@@ -97,7 +254,10 @@ const commonSteps = [
         "radio",
         "tabagismo",
         "Tabagismo",
-        ["Sim", "Não"]
+        [
+          "Sim",
+          "Não"
+        ]
       ],
 
       [
@@ -110,7 +270,10 @@ const commonSteps = [
         "radio",
         "alcool",
         "Ingere bebida alcoólica",
-        ["Sim", "Não"]
+        [
+          "Sim",
+          "Não"
+        ]
       ],
 
       [
@@ -152,7 +315,10 @@ const commonSteps = [
         "radio",
         "atividade",
         "Pratica atividade física",
-        ["Sim", "Não"]
+        [
+          "Sim",
+          "Não"
+        ]
       ],
 
       [
@@ -182,7 +348,10 @@ const commonSteps = [
         "radio",
         "medicamentos",
         "Faz uso de medicamentos",
-        ["Sim", "Não"]
+        [
+          "Sim",
+          "Não"
+        ]
       ],
 
       [
@@ -192,7 +361,9 @@ const commonSteps = [
       ]
 
     ]
+
   },
+
 
   {
     title: "Histórico clínico",
@@ -329,7 +500,10 @@ const commonSteps = [
         "radio",
         "estresse",
         "Estresse",
-        ["Sim", "Não"]
+        [
+          "Sim",
+          "Não"
+        ]
       ],
 
       [
@@ -347,13 +521,14 @@ const commonSteps = [
       ]
 
     ]
+
   }
 
 ];
 
 
 /* =====================================================
-   FICHA FACIAL
+   FACIAL
 ===================================================== */
 
 const facialFields = [
@@ -362,7 +537,13 @@ const facialFields = [
     "checkbox",
     "fototipo",
     "Fototipo cutâneo Fitzpatrick",
-    ["I", "II", "III", "IV", "V"]
+    [
+      "I",
+      "II",
+      "III",
+      "IV",
+      "V"
+    ]
   ],
 
   [
@@ -405,14 +586,21 @@ const facialFields = [
     "checkbox",
     "textura",
     "Textura",
-    ["Lisa", "Áspera"]
+    [
+      "Lisa",
+      "Áspera"
+    ]
   ],
 
   [
     "checkbox",
     "espessura",
     "Espessura",
-    ["Fina", "Muito Fina", "Espessa"]
+    [
+      "Fina",
+      "Muito Fina",
+      "Espessa"
+    ]
   ],
 
   [
@@ -438,7 +626,13 @@ const facialFields = [
     "checkbox",
     "glogau",
     "Fotoenvelhecimento — escala de Glogau",
-    ["I", "II", "III", "IV", "V"]
+    [
+      "I",
+      "II",
+      "III",
+      "IV",
+      "V"
+    ]
   ],
 
   [
@@ -557,7 +751,10 @@ const facialFields = [
     "radio",
     "olheiras",
     "Olheiras",
-    ["Não", "Sim"]
+    [
+      "Não",
+      "Sim"
+    ]
   ],
 
   [
@@ -600,7 +797,7 @@ const facialFields = [
 
 
 /* =====================================================
-   FICHA CAPILAR
+   CAPILAR
 ===================================================== */
 
 const capilarFields = [
@@ -666,7 +863,10 @@ const capilarFields = [
     "radio",
     "densidade_igual",
     "A densidade dos cabelos é a mesma em todo o couro cabeludo?",
-    ["Sim", "Não"]
+    [
+      "Sim",
+      "Não"
+    ]
   ],
 
   [
@@ -741,14 +941,20 @@ const capilarFields = [
     "radio",
     "reposicao",
     "Existe reposição dos fios?",
-    ["Sim", "Não"]
+    [
+      "Sim",
+      "Não"
+    ]
   ],
 
   [
     "radio",
     "comprimento_igual",
     "O comprimento dos cabelos é o mesmo em todas as regiões da cabeça?",
-    ["Sim", "Não"]
+    [
+      "Sim",
+      "Não"
+    ]
   ],
 
   [
@@ -814,7 +1020,10 @@ const capilarFields = [
     "checkbox",
     "estado_cor",
     "Estado",
-    ["Natural", "colorido"]
+    [
+      "Natural",
+      "colorido"
+    ]
   ],
 
   [
@@ -856,14 +1065,22 @@ const capilarFields = [
     "checkbox",
     "espessura_capilar",
     "Espessura",
-    ["fino", "médio", "grosso"]
+    [
+      "fino",
+      "médio",
+      "grosso"
+    ]
   ],
 
   [
     "checkbox",
     "densidade_capilar",
     "Densidade",
-    ["pouca", "média", "muita"]
+    [
+      "pouca",
+      "média",
+      "muita"
+    ]
   ],
 
   [
@@ -910,7 +1127,7 @@ const capilarFields = [
 
 
 /* =====================================================
-   FICHA CORPORAL
+   CORPORAL
 ===================================================== */
 
 const corporalFields = [
@@ -919,14 +1136,20 @@ const corporalFields = [
     "checkbox",
     "gordura",
     "Gordura",
-    ["Compacta", "Flácida"]
+    [
+      "Compacta",
+      "Flácida"
+    ]
   ],
 
   [
     "checkbox",
     "distribuicao_gordura",
     "Distribuição de gordura",
-    ["Localizada", "Generalizada"]
+    [
+      "Localizada",
+      "Generalizada"
+    ]
   ],
 
   [
@@ -1006,7 +1229,12 @@ const corporalFields = [
     "checkbox",
     "hldg_grau",
     "HLDG — Grau",
-    ["I", "II", "III", "IV"]
+    [
+      "I",
+      "II",
+      "III",
+      "IV"
+    ]
   ],
 
   [
@@ -1025,14 +1253,20 @@ const corporalFields = [
     "radio",
     "hldg_temp",
     "Temperatura",
-    ["Fria", "Quente"]
+    [
+      "Fria",
+      "Quente"
+    ]
   ],
 
   [
     "radio",
     "hldg_dor",
     "Presença de dor à palpação",
-    ["Sim", "Não"]
+    [
+      "Sim",
+      "Não"
+    ]
   ],
 
   [
@@ -1073,7 +1307,10 @@ const corporalFields = [
     "checkbox",
     "estrias_largura",
     "Estrias — Largura",
-    ["Fina", "Larga"]
+    [
+      "Fina",
+      "Larga"
+    ]
   ],
 
   [
@@ -1128,7 +1365,11 @@ function goTo(id) {
   document
     .querySelectorAll(".screen")
     .forEach(screen => {
-      screen.classList.remove("active");
+
+      screen.classList.remove(
+        "active"
+      );
+
     });
 
 
@@ -1137,7 +1378,11 @@ function goTo(id) {
 
 
   if (target) {
-    target.classList.add("active");
+
+    target.classList.add(
+      "active"
+    );
+
   }
 
 
@@ -1158,13 +1403,12 @@ function salvarCadastro(event) {
   event.preventDefault();
 
 
-  const data =
+  cadastro =
     Object.fromEntries(
-      new FormData(event.target).entries()
+      new FormData(
+        event.target
+      ).entries()
     );
-
-
-  cadastro = data;
 
 
   goTo("escolha");
@@ -1173,22 +1417,38 @@ function salvarCadastro(event) {
 
 
 /* =====================================================
-   ESCAPE
+   ESCAPAR HTML
 ===================================================== */
 
 function esc(value = "") {
 
   return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;");
+
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+
+    .replaceAll(
+      ">",
+      "&gt;"
+    );
 
 }
 
 
 /* =====================================================
-   CAMPOS
+   GERAR CAMPO
 ===================================================== */
 
 function fieldHtml(field) {
@@ -1210,8 +1470,8 @@ function fieldHtml(field) {
         ${esc(label)}
 
         <input
-          name="${esc(name)}"
           type="text"
+          name="${esc(name)}"
         >
 
       </label>
@@ -1260,23 +1520,26 @@ function fieldHtml(field) {
 
       <div class="checks">
 
-        ${options
-          .map(value => `
+        ${
+          options
+            .map(
+              option => `
 
-            <label>
+                <label>
 
-              <input
-                type="${type}"
-                name="${esc(name)}${suffix}"
-                value="${esc(value)}"
-              >
+                  <input
+                    type="${type}"
+                    name="${esc(name)}${suffix}"
+                    value="${esc(option)}"
+                  >
 
-              ${esc(value)}
+                  ${esc(option)}
 
-            </label>
+                </label>
 
-          `)
-          .join("")
+              `
+            )
+            .join("")
         }
 
       </div>
@@ -1327,6 +1590,7 @@ function fieldHtml(field) {
         ${esc(options)}
 
         <input
+          type="text"
           name="${esc(name)}_detalhes"
         >
 
@@ -1343,14 +1607,15 @@ function fieldHtml(field) {
 
 
 /* =====================================================
-   DADOS DA CLIENTE
+   DADOS DO CADASTRO
 ===================================================== */
 
 function renderIdentityFields() {
 
   return `
 
-    <div class="review identity">
+    <div class="review">
+
 
       <div>
 
@@ -1390,6 +1655,7 @@ function renderIdentityFields() {
 
       </div>
 
+
     </div>
 
   `;
@@ -1401,7 +1667,9 @@ function renderIdentityFields() {
    ETAPAS GERAIS
 ===================================================== */
 
-function renderCommonStep(stepIndex) {
+function renderCommonStep(
+  stepIndex
+) {
 
   const step =
     commonSteps[stepIndex];
@@ -1449,18 +1717,33 @@ function renderAreaStep() {
   let fields = [];
 
 
-  if (areaAtual === "facial") {
-    fields = facialFields;
+  if (
+    areaAtual === "facial"
+  ) {
+
+    fields =
+      facialFields;
+
   }
 
 
-  if (areaAtual === "capilar") {
-    fields = capilarFields;
+  if (
+    areaAtual === "capilar"
+  ) {
+
+    fields =
+      capilarFields;
+
   }
 
 
-  if (areaAtual === "corporal") {
-    fields = corporalFields;
+  if (
+    areaAtual === "corporal"
+  ) {
+
+    fields =
+      corporalFields;
+
   }
 
 
@@ -1480,9 +1763,10 @@ function renderAreaStep() {
       </h3>
 
 
-      ${fields
-        .map(fieldHtml)
-        .join("")
+      ${
+        fields
+          .map(fieldHtml)
+          .join("")
       }
 
     </div>
@@ -1581,14 +1865,17 @@ function renderReview() {
 
         <div>
 
-          Esta ficha será encaminhada
-          para <strong>Ligiane Goulart</strong>.
+          Esta ficha será enviada para
 
+          <strong>
+            Ligiane Goulart
+          </strong>
+
+          através do sistema de e-mail.
 
           <br><br>
 
-
-          E-mail de destino:
+          Destino:
 
           <strong>
             ${DESTINO_EMAIL}
@@ -1628,13 +1915,20 @@ function renderReview() {
    ABRIR ÁREA
 ===================================================== */
 
-function abrirArea(area) {
+function abrirArea(
+  area
+) {
 
-  areaAtual = area;
+  areaAtual =
+    area;
 
-  passoAtual = 1;
+
+  passoAtual =
+    1;
+
 
   renderWizard();
+
 
   goTo("ficha");
 
@@ -1642,12 +1936,13 @@ function abrirArea(area) {
 
 
 /* =====================================================
-   WIZARD
+   CONSTRUIR WIZARD
 ===================================================== */
 
 function renderWizard() {
 
-  const totalPassos = 5;
+  const totalPassos =
+    5;
 
 
   const titulo =
@@ -1664,7 +1959,9 @@ function renderWizard() {
 
 
   if (!card) {
+
     return;
+
   }
 
 
@@ -1722,23 +2019,27 @@ function renderWizard() {
     <div class="progress">
 
       ${
-        Array.from(
-          { length: totalPassos }
-        )
-        .map(
-          (_, index) => `
+        Array
+          .from(
+            {
+              length:
+                totalPassos
+            }
+          )
+          .map(
+            (_, index) => `
 
-            <i
-              class="${
-                index < passoAtual
-                  ? "active"
-                  : ""
-              }"
-            ></i>
+              <i
+                class="${
+                  index < passoAtual
+                    ? "active"
+                    : ""
+                }"
+              ></i>
 
-          `
-        )
-        .join("")
+            `
+          )
+          .join("")
       }
 
     </div>
@@ -1889,7 +2190,9 @@ function updateWizardButtons() {
     !next ||
     !number
   ) {
+
     return;
+
   }
 
 
@@ -1938,7 +2241,9 @@ function validarPasso() {
 
 
   if (!step) {
+
     return true;
+
   }
 
 
@@ -1949,7 +2254,8 @@ function validarPasso() {
 
 
   for (
-    const element of required
+    const element
+    of required
   ) {
 
     if (
@@ -1971,7 +2277,7 @@ function validarPasso() {
 
 
 /* =====================================================
-   PRÓXIMO PASSO
+   PRÓXIMO
 ===================================================== */
 
 function passoProximo() {
@@ -1979,7 +2285,9 @@ function passoProximo() {
   if (
     !validarPasso()
   ) {
+
     return;
+
   }
 
 
@@ -2015,7 +2323,7 @@ function passoProximo() {
 
 
 /* =====================================================
-   PASSO ANTERIOR
+   VOLTAR
 ===================================================== */
 
 function passoAnterior() {
@@ -2039,45 +2347,106 @@ function passoAnterior() {
 
 
 /* =====================================================
-   CONVERTER FORM DATA EM OBJETO
+   TRANSFORMAR NOME DOS CAMPOS
 ===================================================== */
 
-function formDataToObject(form) {
+function nomeBonito(
+  nome
+) {
 
-  const formData =
+  return nome
+
+    .replace(
+      /\[\]$/,
+      ""
+    )
+
+    .replaceAll(
+      "_",
+      " "
+    )
+
+    .replace(
+      /\b\w/g,
+      letra =>
+        letra.toUpperCase()
+    );
+
+}
+
+
+/* =====================================================
+   MONTAR MENSAGEM DA FICHA
+===================================================== */
+
+function montarMensagem(
+  form
+) {
+
+  const data =
     new FormData(form);
 
 
-  const data = {};
+  const respostas = {};
 
 
-  formData.forEach(
+
+  data.forEach(
     (value, key) => {
 
       if (
-        key.endsWith("[]")
+        key ===
+        "autorizacao_envio"
       ) {
 
-        const cleanKey =
-          key.slice(0, -2);
+        return;
 
+      }
+
+
+      if (
+        key.startsWith("_")
+      ) {
+
+        return;
+
+      }
+
+
+      const nome =
+        key.replace(
+          /\[\]$/,
+          ""
+        );
+
+
+      if (
+        respostas[nome]
+      ) {
 
         if (
-          !Array.isArray(
-            data[cleanKey]
+          Array.isArray(
+            respostas[nome]
           )
         ) {
 
-          data[cleanKey] = [];
+          respostas[nome]
+            .push(value);
+
+        } else {
+
+          respostas[nome] =
+            [
+              respostas[nome],
+              value
+            ];
 
         }
 
-
-        data[cleanKey].push(value);
-
       } else {
 
-        data[key] = value;
+        respostas[nome] =
+          value;
 
       }
 
@@ -2085,16 +2454,123 @@ function formDataToObject(form) {
   );
 
 
-  return data;
+  let mensagem =
+    "";
+
+
+  mensagem +=
+    "NOVA ANAMNESE\n\n";
+
+
+  mensagem +=
+    "CLIENTE\n";
+
+  mensagem +=
+    "Nome: "
+    + (cadastro.nome || "")
+    + "\n";
+
+  mensagem +=
+    "E-mail: "
+    + (cadastro.email || "")
+    + "\n";
+
+  mensagem +=
+    "WhatsApp: "
+    + (cadastro.celular || "")
+    + "\n";
+
+
+  mensagem +=
+    "Área: "
+    + (
+      areaAtual
+        .charAt(0)
+        .toUpperCase()
+      + areaAtual.slice(1)
+    )
+    + "\n\n";
+
+
+  mensagem +=
+    "========================================\n\n";
+
+
+  mensagem +=
+    "RESPOSTAS DA ANAMNESE\n\n";
+
+
+  Object.entries(
+    respostas
+  ).forEach(
+    ([key, value]) => {
+
+
+      if (
+        value === "" ||
+        value === null ||
+        value === undefined
+      ) {
+
+        return;
+
+      }
+
+
+      if (
+        Array.isArray(value)
+      ) {
+
+        value =
+          value.join(", ");
+
+      }
+
+
+      if (
+        String(value).trim() === ""
+      ) {
+
+        return;
+
+      }
+
+
+      mensagem +=
+        nomeBonito(key)
+        + ":\n";
+
+      mensagem +=
+        String(value)
+        + "\n\n";
+
+    }
+  );
+
+
+  mensagem +=
+    "========================================\n\n";
+
+
+  mensagem +=
+    "Sistema de Anamnese Estética\n";
+
+  mensagem +=
+    "Ligiane Goulart";
+
+
+  return mensagem;
 
 }
 
 
 /* =====================================================
-   ENVIO CORRETO AO FORMSUBMIT
+   ENVIAR PELO EMAILJS
 ===================================================== */
 
-async function prepararEnvio(event) {
+async function prepararEnvio(
+  event
+) {
 
   event.preventDefault();
 
@@ -2104,14 +2580,18 @@ async function prepararEnvio(event) {
 
 
   if (!form) {
+
     return;
+
   }
 
 
   if (
     !validarPasso()
   ) {
+
     return;
+
   }
 
 
@@ -2121,155 +2601,111 @@ async function prepararEnvio(event) {
     );
 
 
-  const dados =
-    formDataToObject(form);
-
-
-  /*
-   * Identificação da cliente
-   */
-
-  dados.cliente_nome =
-    cadastro.nome || "";
-
-
-  dados.cliente_email =
-    cadastro.email || "";
-
-
-  dados.cliente_celular =
-    cadastro.celular || "";
-
-
-  dados.area_atendimento =
-    areaAtual;
-
-
-  /*
-   * Configurações do FormSubmit
-   */
-
-  dados._subject =
-    `Nova Anamnese ${areaAtual.toUpperCase()} - ${cadastro.nome || "Cliente"}`;
-
-
-  dados._replyto =
-    cadastro.email || "";
-
-
-  dados._template =
-    "table";
-
-
-  dados._captcha =
-    "false";
-
-
-  /*
-   * Informa a URL do site
-   */
-
-  dados._url =
-    window.location.href;
-
-
-  /*
-   * Estado do botão
-   */
-
-  if (button) {
-
-    button.disabled =
-      true;
-
-    button.textContent =
-      "Enviando...";
-
-  }
-
-
   try {
 
-    const response =
-      await fetch(
-        FORM_ENDPOINT,
-        {
 
-          method: "POST",
+    /* ---------------------------------
+       GARANTIR QUE EMAILJS CARREGOU
+    --------------------------------- */
 
-          headers: {
+    await emailJSPronto;
 
-            "Content-Type":
-              "application/json",
 
-            "Accept":
-              "application/json"
+    if (
+      typeof emailjs ===
+      "undefined"
+    ) {
 
-          },
-
-          body:
-            JSON.stringify(dados)
-
-        }
+      throw new Error(
+        "EmailJS não foi carregado."
       );
 
+    }
 
-    const resultado =
-      await response.json();
+
+    /* ---------------------------------
+       TEXTO COMPLETO DA ANAMNESE
+    --------------------------------- */
+
+    const mensagem =
+      montarMensagem(form);
+
+
+    /* ---------------------------------
+       PARÂMETROS DO TEMPLATE
+    --------------------------------- */
+
+    const templateParams = {
+
+      cliente_nome:
+        cadastro.nome || "",
+
+      cliente_email:
+        cadastro.email || "",
+
+      cliente_celular:
+        cadastro.celular || "",
+
+      area_atendimento:
+        areaAtual || "",
+
+      mensagem:
+        mensagem
+
+    };
+
+
+    /* ---------------------------------
+       BOTÃO
+    --------------------------------- */
+
+    if (button) {
+
+      button.disabled =
+        true;
+
+      button.textContent =
+        "Enviando...";
+
+    }
+
+
+    /* ---------------------------------
+       ENVIO
+    --------------------------------- */
+
+    const resposta =
+      await emailjs.send(
+
+        EMAILJS_SERVICE_ID,
+
+        EMAILJS_TEMPLATE_ID,
+
+        templateParams
+
+      );
 
 
     console.log(
-      "Resposta do FormSubmit:",
-      resultado
+      "EmailJS enviado:",
+      resposta
     );
 
 
-    /*
-     * Caso o servidor responda erro
-     */
+    /* ---------------------------------
+       SUCESSO
+    --------------------------------- */
 
-    if (
-      !response.ok
-    ) {
-
-      throw new Error(
-        resultado.message ||
-        "O servidor recusou o envio."
-      );
-
-    }
-
-
-    /*
-     * Algumas respostas
-     * do FormSubmit podem indicar
-     * que o endereço ainda precisa
-     * ser ativado.
-     */
-
-    if (
-      resultado.success === false
-    ) {
-
-      throw new Error(
-        resultado.message ||
-        "O formulário ainda não está ativo."
-      );
-
-    }
-
-
-    /*
-     * Tudo certo
-     */
-
-    goTo("sucesso");
+    goTo(
+      "sucesso"
+    );
 
 
   } catch (error) {
 
+
     console.error(
-      "Erro no FormSubmit:",
+      "Erro no EmailJS:",
       error
     );
 
@@ -2285,10 +2721,24 @@ async function prepararEnvio(event) {
     }
 
 
+    let mensagemErro =
+      "Não foi possível enviar a ficha.";
+
+
+    if (
+      error &&
+      error.text
+    ) {
+
+      mensagemErro +=
+        "\n\nDetalhes: "
+        + error.text;
+
+    }
+
+
     alert(
-      "A ficha não foi enviada. Se esta é a primeira utilização, verifique o e-mail " +
-      DESTINO_EMAIL +
-      " e a pasta de spam para ativar o formulário."
+      mensagemErro
     );
 
   }
