@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta
+    name="theme-color"
+    content="#a45e78"
+  >
+
+  <meta
+    name="description"
+    content="Anamnese estética online - Ligiane Goulart"
+  >
+
+  <title>
+    LG | Ligiane Goulart — Anamnese Estética
+  </title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       CABEÇALHO
+  ========================== -->
+
+  <header class="topbar">
+
+    <a
+      class="brand"
+      href="#"
+      onclick="goTo('home'); return false;"
+      aria-label="Ligiane Goulart"
+    >
+
+      <span
+        class="brand-mark"
+        aria-hidden="true"
+      >
+
+        <span class="lg-l">
+          L
+        </span>
+
+        <span class="lg-g">
+          G
+        </span>
+
+        <i></i>
+
+      </span>
+
+
+      <span class="brand-copy">
+
+        <strong>
+          LIGIANE GOULART
+        </strong>
+
+        <small>
+          ANAMNESE • ESTÉTICA
+        </small>
+
+      </span>
+
+    </a>
+
+  </header>
+
+
+
+  <main>
+
+
+    <!-- =========================
+         INÍCIO
+    ========================== -->
+
+    <section
+      id="home"
+      class="screen active"
+    >
+
+      <div class="hero card">
+
+
+        <div class="hero-copy">
+
+          <span class="eyebrow">
+            ANAMNESE ESTÉTICA
+          </span>
+
+
+          <h1>
+
+            Seu atendimento
+            <br>
+
+            <em>começa aqui.</em>
+
+          </h1>
+
+
+          <p>
+
+            Cadastre seus dados e
+            preencha somente a ficha
+            correspondente ao atendimento
+            realizado.
+
+          </p>
+
+
+          <button
+            class="primary"
+            type="button"
+            onclick="goTo('cadastro')"
+          >
+
+            Começar
+
+            <span>
+              →
+            </span>
+
+          </button>
+
+        </div>
+
+
+        <div
+          class="hero-monogram"
+          aria-hidden="true"
+        >
+          LG
+        </div>
+
+      </div>
+
+
+
+      <div class="mini-features">
+
+
+        <div>
+
+          <span>
+            01
+          </span>
+
+          <strong>
+            Cadastro simples
+          </strong>
+
+          <p>
+            Nome, e-mail e contato
+            para identificar a ficha.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            02
+          </span>
+
+          <strong>
+            Escolha a área
+          </strong>
+
+          <p>
+            Facial, capilar ou corporal.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            03
+          </span>
+
+          <strong>
+            Envio digital
+          </strong>
+
+          <p>
+            A ficha preenchida é
+            encaminhada para Ligiane.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CADASTRO
+    ========================== -->
+
+    <section
+      id="cadastro"
+      class="screen"
+    >
+
+      <div class="form-card narrow">
+
+
+        <button
+          class="back"
+          type="button"
+          onclick="goTo('home')"
+        >
+
+          ← Voltar
+
+        </button>
+
+
+        <div class="heading">
+
+          <span class="eyebrow">
+            1 • CADASTRO
+          </span>
+
+
+          <h2>
+            Crie seu cadastro
+          </h2>
+
+
+          <p>
+            Somente os dados necessários
+            para identificar a ficha.
+          </p>
+
+        </div>
+
+
+
+        <form
+          id="cadastroForm"
+          onsubmit="salvarCadastro(event)"
+        >
+
+
+          <div class="stack">
+
+
+            <label>
+
+              Nome completo *
+
+              <input
+                name="nome"
+                autocomplete="name"
+                placeholder="Seu nome completo"
+                required
+              >
+
+            </label>
+
+
+            <label>
+
+              E-mail *
+
+              <input
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="seuemail@email.com"
+                required
+              >
+
+            </label>
+
+
+            <label>
+
+              Celular / WhatsApp *
+
+              <input
+                name="celular"
+                type="tel"
+                autocomplete="tel"
+                placeholder="(00) 00000-0000"
+                required
+              >
+
+            </label>
+
+
+          </div>
+
+
+
+          <div class="privacy-note">
+
+            <span>
+              ↗
+            </span>
+
+
+            <p>
+
+              <strong>
+                Sobre o envio:
+              </strong>
+
+              depois que a anamnese for
+              concluída, a ficha será enviada
+              para o e-mail profissional de
+              <strong>
+                Ligiane Goulart
+              </strong>.
+
+              O e-mail informado será usado
+              para identificar a cliente.
+
+            </p>
+
+          </div>
+
+
+
+          <button
+            class="primary full"
+            type="submit"
+          >
+
+            Continuar →
+
+          </button>
+
+
+        </form>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ESCOLHA DA ÁREA
+    ========================== -->
+
+    <section
+      id="escolha"
+      class="screen"
+    >
+
+
+      <div class="heading center">
+
+        <span class="eyebrow">
+          2 • ATENDIMENTO
+        </span>
+
+
+        <h2>
+          Qual ficha você vai preencher?
+        </h2>
+
+
+        <p>
+          Escolha uma área para começar.
+        </p>
+
+      </div>
+
+
+
+      <div class="area-grid">
+
+
+        <button
+          class="area-card"
+          type="button"
+          onclick="abrirArea('facial')"
+        >
+
+          <span class="area-icon">
+            F
+          </span>
+
+
+          <span>
+
+            <strong>
+              Facial
+            </strong>
+
+            <small>
+              Ficha de avaliação facial
+            </small>
+
+          </span>
+
+
+          <b>
+            →
+          </b>
+
+        </button>
+
+
+
+        <button
+          class="area-card"
+          type="button"
+          onclick="abrirArea('capilar')"
+        >
+
+          <span class="area-icon">
+            C
+          </span>
+
+
+          <span>
+
+            <strong>
+              Capilar
+            </strong>
+
+            <small>
+              Ficha de avaliação capilar
+            </small>
+
+          </span>
+
+
+          <b>
+            →
+          </b>
+
+        </button>
+
+
+
+        <button
+          class="area-card"
+          type="button"
+          onclick="abrirArea('corporal')"
+        >
+
+          <span class="area-icon">
+            B
+          </span>
+
+
+          <span>
+
+            <strong>
+              Corporal
+            </strong>
+
+            <small>
+              Ficha de avaliação corporal
+            </small>
+
+          </span>
+
+
+          <b>
+            →
+          </b>
+
+        </button>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FICHA
+    ========================== -->
+
+    <section
+      id="ficha"
+      class="screen"
+    >
+
+      <div
+        class="form-card wide"
+        id="fichaCard"
+      ></div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SUCESSO
+    ========================== -->
+
+    <section
+      id="sucesso"
+      class="screen"
+    >
+
+      <div class="success card">
+
+
+        <div class="success-icon">
+          ✓
+        </div>
+
+
+        <span class="eyebrow">
+          ENVIO CONCLUÍDO
+        </span>
+
+
+        <h2>
+
+          Anamnese enviada
+          <br>
+
+          <em>com sucesso.</em>
+
+        </h2>
+
+
+        <p>
+
+          A ficha foi encaminhada para
+          o e-mail profissional de
+          Ligiane Goulart.
+
+        </p>
+
+
+        <button
+          class="primary"
+          type="button"
+          onclick="location.reload()"
+        >
+
+          Voltar ao início
+
+        </button>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <footer>
+
+    LG • LIGIANE GOULART • ANAMNESE ESTÉTICA
+
+  </footer>
+
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
