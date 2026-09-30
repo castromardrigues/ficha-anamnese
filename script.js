@@ -2,18 +2,13 @@
    CONFIGURAÇÃO
 ===================================================== */
 
-const DESTINO_EMAIL =
-  "ligianecastro84@gmail.com";
-
+const DESTINO_EMAIL = "ligianecastro84@gmail.com";
 
 const FORM_ENDPOINT =
   `https://formsubmit.co/ajax/${DESTINO_EMAIL}`;
 
-
 let cadastro = {};
-
 let areaAtual = "";
-
 let passoAtual = 1;
 
 
@@ -28,69 +23,19 @@ const commonSteps = [
 
     fields: [
 
-      [
-        "text",
-        "cpf",
-        "CPF"
-      ],
-
-      [
-        "text",
-        "rg",
-        "R.G."
-      ],
-
-      [
-        "text",
-        "nascimento",
-        "Data de nascimento"
-      ],
-
-      [
-        "text",
-        "profissao",
-        "Profissão"
-      ],
-
-      [
-        "text",
-        "estado_civil",
-        "Estado civil"
-      ],
-
-      [
-        "text",
-        "endereco",
-        "Endereço"
-      ],
-
-      [
-        "text",
-        "bairro",
-        "Bairro"
-      ],
-
-      [
-        "text",
-        "cidade",
-        "Cidade"
-      ],
-
-      [
-        "text",
-        "estado",
-        "Estado"
-      ],
-
-      [
-        "text",
-        "cep",
-        "CEP"
-      ]
+      ["text", "cpf", "CPF"],
+      ["text", "rg", "R.G."],
+      ["text", "nascimento", "Data de nascimento"],
+      ["text", "profissao", "Profissão"],
+      ["text", "estado_civil", "Estado civil"],
+      ["text", "endereco", "Endereço"],
+      ["text", "bairro", "Bairro"],
+      ["text", "cidade", "Cidade"],
+      ["text", "estado", "Estado"],
+      ["text", "cep", "CEP"]
 
     ]
   },
-
 
   {
     title: "Hábitos e saúde",
@@ -113,10 +58,7 @@ const commonSteps = [
         "radio",
         "cosmeticos",
         "Utilização de cosméticos",
-        [
-          "Sim",
-          "Não"
-        ]
+        ["Sim", "Não"]
       ],
 
       [
@@ -129,10 +71,7 @@ const commonSteps = [
         "radio",
         "sol",
         "Exposição ao sol",
-        [
-          "Sim",
-          "Não"
-        ]
+        ["Sim", "Não"]
       ],
 
       [
@@ -145,10 +84,7 @@ const commonSteps = [
         "radio",
         "filtro_solar",
         "Utiliza filtro solar",
-        [
-          "Sim",
-          "Não"
-        ]
+        ["Sim", "Não"]
       ],
 
       [
@@ -161,10 +97,7 @@ const commonSteps = [
         "radio",
         "tabagismo",
         "Tabagismo",
-        [
-          "Sim",
-          "Não"
-        ]
+        ["Sim", "Não"]
       ],
 
       [
@@ -177,10 +110,7 @@ const commonSteps = [
         "radio",
         "alcool",
         "Ingere bebida alcoólica",
-        [
-          "Sim",
-          "Não"
-        ]
+        ["Sim", "Não"]
       ],
 
       [
@@ -222,10 +152,7 @@ const commonSteps = [
         "radio",
         "atividade",
         "Pratica atividade física",
-        [
-          "Sim",
-          "Não"
-        ]
+        ["Sim", "Não"]
       ],
 
       [
@@ -255,10 +182,7 @@ const commonSteps = [
         "radio",
         "medicamentos",
         "Faz uso de medicamentos",
-        [
-          "Sim",
-          "Não"
-        ]
+        ["Sim", "Não"]
       ],
 
       [
@@ -269,7 +193,6 @@ const commonSteps = [
 
     ]
   },
-
 
   {
     title: "Histórico clínico",
@@ -406,10 +329,7 @@ const commonSteps = [
         "radio",
         "estresse",
         "Estresse",
-        [
-          "Sim",
-          "Não"
-        ]
+        ["Sim", "Não"]
       ],
 
       [
@@ -442,13 +362,7 @@ const facialFields = [
     "checkbox",
     "fototipo",
     "Fototipo cutâneo Fitzpatrick",
-    [
-      "I",
-      "II",
-      "III",
-      "IV",
-      "V"
-    ]
+    ["I", "II", "III", "IV", "V"]
   ],
 
   [
@@ -491,21 +405,14 @@ const facialFields = [
     "checkbox",
     "textura",
     "Textura",
-    [
-      "Lisa",
-      "Áspera"
-    ]
+    ["Lisa", "Áspera"]
   ],
 
   [
     "checkbox",
     "espessura",
     "Espessura",
-    [
-      "Fina",
-      "Muito Fina",
-      "Espessa"
-    ]
+    ["Fina", "Muito Fina", "Espessa"]
   ],
 
   [
@@ -531,13 +438,7 @@ const facialFields = [
     "checkbox",
     "glogau",
     "Fotoenvelhecimento — escala de Glogau",
-    [
-      "I",
-      "II",
-      "III",
-      "IV",
-      "V"
-    ]
+    ["I", "II", "III", "IV", "V"]
   ],
 
   [
@@ -656,10 +557,7 @@ const facialFields = [
     "radio",
     "olheiras",
     "Olheiras",
-    [
-      "Não",
-      "Sim"
-    ]
+    ["Não", "Sim"]
   ],
 
   [
@@ -768,10 +666,7 @@ const capilarFields = [
     "radio",
     "densidade_igual",
     "A densidade dos cabelos é a mesma em todo o couro cabeludo?",
-    [
-      "Sim",
-      "Não"
-    ]
+    ["Sim", "Não"]
   ],
 
   [
@@ -846,20 +741,14 @@ const capilarFields = [
     "radio",
     "reposicao",
     "Existe reposição dos fios?",
-    [
-      "Sim",
-      "Não"
-    ]
+    ["Sim", "Não"]
   ],
 
   [
     "radio",
     "comprimento_igual",
     "O comprimento dos cabelos é o mesmo em todas as regiões da cabeça?",
-    [
-      "Sim",
-      "Não"
-    ]
+    ["Sim", "Não"]
   ],
 
   [
@@ -925,10 +814,7 @@ const capilarFields = [
     "checkbox",
     "estado_cor",
     "Estado",
-    [
-      "Natural",
-      "colorido"
-    ]
+    ["Natural", "colorido"]
   ],
 
   [
@@ -970,22 +856,14 @@ const capilarFields = [
     "checkbox",
     "espessura_capilar",
     "Espessura",
-    [
-      "fino",
-      "médio",
-      "grosso"
-    ]
+    ["fino", "médio", "grosso"]
   ],
 
   [
     "checkbox",
     "densidade_capilar",
     "Densidade",
-    [
-      "pouca",
-      "média",
-      "muita"
-    ]
+    ["pouca", "média", "muita"]
   ],
 
   [
@@ -1041,20 +919,14 @@ const corporalFields = [
     "checkbox",
     "gordura",
     "Gordura",
-    [
-      "Compacta",
-      "Flácida"
-    ]
+    ["Compacta", "Flácida"]
   ],
 
   [
     "checkbox",
     "distribuicao_gordura",
     "Distribuição de gordura",
-    [
-      "Localizada",
-      "Generalizada"
-    ]
+    ["Localizada", "Generalizada"]
   ],
 
   [
@@ -1134,12 +1006,7 @@ const corporalFields = [
     "checkbox",
     "hldg_grau",
     "HLDG — Grau",
-    [
-      "I",
-      "II",
-      "III",
-      "IV"
-    ]
+    ["I", "II", "III", "IV"]
   ],
 
   [
@@ -1158,20 +1025,14 @@ const corporalFields = [
     "radio",
     "hldg_temp",
     "Temperatura",
-    [
-      "Fria",
-      "Quente"
-    ]
+    ["Fria", "Quente"]
   ],
 
   [
     "radio",
     "hldg_dor",
     "Presença de dor à palpação",
-    [
-      "Sim",
-      "Não"
-    ]
+    ["Sim", "Não"]
   ],
 
   [
@@ -1212,10 +1073,7 @@ const corporalFields = [
     "checkbox",
     "estrias_largura",
     "Estrias — Largura",
-    [
-      "Fina",
-      "Larga"
-    ]
+    ["Fina", "Larga"]
   ],
 
   [
@@ -1270,15 +1128,17 @@ function goTo(id) {
   document
     .querySelectorAll(".screen")
     .forEach(screen => {
-
       screen.classList.remove("active");
-
     });
 
 
-  document
-    .getElementById(id)
-    .classList.add("active");
+  const target =
+    document.getElementById(id);
+
+
+  if (target) {
+    target.classList.add("active");
+  }
 
 
   window.scrollTo({
@@ -1290,7 +1150,7 @@ function goTo(id) {
 
 
 /* =====================================================
-   CADASTRO INICIAL
+   CADASTRO
 ===================================================== */
 
 function salvarCadastro(event) {
@@ -1313,38 +1173,22 @@ function salvarCadastro(event) {
 
 
 /* =====================================================
-   ESCAPAR TEXTO
+   ESCAPE
 ===================================================== */
 
 function esc(value = "") {
 
   return String(value)
-
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
-
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
-
-    .replaceAll(
-      ">",
-      "&gt;"
-    );
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
 
 }
 
 
 /* =====================================================
-   GERAR CAMPOS
+   CAMPOS
 ===================================================== */
 
 function fieldHtml(field) {
@@ -1401,12 +1245,8 @@ function fieldHtml(field) {
     type === "checkbox"
   ) {
 
-    const inputType =
-      type;
-
-
     const suffix =
-      inputType === "checkbox"
+      type === "checkbox"
         ? "[]"
         : "";
 
@@ -1414,32 +1254,28 @@ function fieldHtml(field) {
     return `
 
       <label>
-
         ${esc(label)}
-
       </label>
 
 
       <div class="checks">
 
         ${options
-          .map(
-            value => `
+          .map(value => `
 
-              <label>
+            <label>
 
-                <input
-                  type="${inputType}"
-                  name="${esc(name)}${suffix}"
-                  value="${esc(value)}"
-                >
+              <input
+                type="${type}"
+                name="${esc(name)}${suffix}"
+                value="${esc(value)}"
+              >
 
-                ${esc(value)}
+              ${esc(value)}
 
-              </label>
+            </label>
 
-            `
-          )
+          `)
           .join("")
         }
 
@@ -1450,9 +1286,7 @@ function fieldHtml(field) {
   }
 
 
-  if (
-    type === "radioDetail"
-  ) {
+  if (type === "radioDetail") {
 
     return `
 
@@ -1509,48 +1343,7 @@ function fieldHtml(field) {
 
 
 /* =====================================================
-   ETAPAS COMUNS
-===================================================== */
-
-function renderCommonStep(stepIndex) {
-
-  const step =
-    commonSteps[stepIndex];
-
-
-  const fields =
-    step.fields
-      .map(fieldHtml)
-      .join("");
-
-
-  return `
-
-    <div class="section">
-
-      <h3>
-        ${esc(step.title)}
-      </h3>
-
-
-      ${
-        stepIndex === 0
-          ? renderIdentityFields()
-          : ""
-      }
-
-
-      ${fields}
-
-    </div>
-
-  `;
-
-}
-
-
-/* =====================================================
-   IDENTIFICAÇÃO
+   DADOS DA CLIENTE
 ===================================================== */
 
 function renderIdentityFields() {
@@ -1605,6 +1398,49 @@ function renderIdentityFields() {
 
 
 /* =====================================================
+   ETAPAS GERAIS
+===================================================== */
+
+function renderCommonStep(stepIndex) {
+
+  const step =
+    commonSteps[stepIndex];
+
+
+  return `
+
+    <div class="section">
+
+      <h3>
+        ${esc(step.title)}
+      </h3>
+
+
+      ${
+        stepIndex === 0
+          ? renderIdentityFields()
+          : ""
+      }
+
+
+      <div class="grid two">
+
+        ${
+          step.fields
+            .map(fieldHtml)
+            .join("")
+        }
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =====================================================
    ETAPA ESPECÍFICA
 ===================================================== */
 
@@ -1614,23 +1450,17 @@ function renderAreaStep() {
 
 
   if (areaAtual === "facial") {
-
     fields = facialFields;
-
   }
 
 
   if (areaAtual === "capilar") {
-
     fields = capilarFields;
-
   }
 
 
   if (areaAtual === "corporal") {
-
     fields = corporalFields;
-
   }
 
 
@@ -1639,10 +1469,14 @@ function renderAreaStep() {
     <div class="section">
 
       <h3>
-        Avaliação ${esc(
-          areaAtual.charAt(0).toUpperCase()
-          + areaAtual.slice(1)
-        )}
+        Avaliação ${
+          esc(
+            areaAtual
+              .charAt(0)
+              .toUpperCase()
+            + areaAtual.slice(1)
+          )
+        }
       </h3>
 
 
@@ -1722,12 +1556,14 @@ function renderReview() {
           </strong>
 
           <span>
-            ${esc(
-              areaAtual
-                .charAt(0)
-                .toUpperCase()
-              + areaAtual.slice(1)
-            )}
+            ${
+              esc(
+                areaAtual
+                  .charAt(0)
+                  .toUpperCase()
+                + areaAtual.slice(1)
+              )
+            }
           </span>
 
         </div>
@@ -1745,13 +1581,18 @@ function renderReview() {
 
         <div>
 
-          A ficha será encaminhada
-          para <strong>Ligiane Goulart</strong>
-          no e-mail
+          Esta ficha será encaminhada
+          para <strong>Ligiane Goulart</strong>.
+
+
+          <br><br>
+
+
+          E-mail de destino:
 
           <strong>
             ${DESTINO_EMAIL}
-          </strong>.
+          </strong>
 
         </div>
 
@@ -1768,8 +1609,9 @@ function renderReview() {
             required
           >
 
-          Conferi as informações e
-          autorizo o envio desta anamnese.
+          Conferi as informações
+          e autorizo o envio desta
+          anamnese.
 
         </label>
 
@@ -1783,7 +1625,7 @@ function renderReview() {
 
 
 /* =====================================================
-   ABRIR UMA ÁREA
+   ABRIR ÁREA
 ===================================================== */
 
 function abrirArea(area) {
@@ -1807,7 +1649,8 @@ function renderWizard() {
 
   const totalPassos = 5;
 
-  let titulo =
+
+  const titulo =
     areaAtual
       .charAt(0)
       .toUpperCase()
@@ -1818,6 +1661,11 @@ function renderWizard() {
     document.getElementById(
       "fichaCard"
     );
+
+
+  if (!card) {
+    return;
+  }
 
 
   card.innerHTML = `
@@ -1835,7 +1683,6 @@ function renderWizard() {
 
     <div class="wizard-top">
 
-
       <div>
 
         <span class="wizard-kicker">
@@ -1850,8 +1697,7 @@ function renderWizard() {
 
         <h2 class="wizard-title">
 
-          Ficha
-          ${esc(titulo)}
+          Ficha ${esc(titulo)}
 
         </h2>
 
@@ -1866,11 +1712,9 @@ function renderWizard() {
           ${passoAtual}
         </b>
 
-        de
-        ${totalPassos}
+        de ${totalPassos}
 
       </span>
-
 
     </div>
 
@@ -1878,29 +1722,23 @@ function renderWizard() {
     <div class="progress">
 
       ${
-        Array
-          .from(
-            {
-              length:
-                totalPassos
-            }
-          )
+        Array.from(
+          { length: totalPassos }
+        )
+        .map(
+          (_, index) => `
 
-          .map(
-            (_, index) => `
+            <i
+              class="${
+                index < passoAtual
+                  ? "active"
+                  : ""
+              }"
+            ></i>
 
-              <i
-                class="${
-                  index < passoAtual
-                    ? "active"
-                    : ""
-                }"
-              ></i>
-
-            `
-          )
-
-          .join("")
+          `
+        )
+        .join("")
       }
 
     </div>
@@ -1988,8 +1826,8 @@ function renderWizard() {
         <button
           class="ghost"
           type="button"
-          onclick="passoAnterior()"
           id="prevBtn"
+          onclick="passoAnterior()"
         >
 
           ← Voltar
@@ -2000,8 +1838,8 @@ function renderWizard() {
         <button
           class="primary"
           type="button"
-          onclick="passoProximo()"
           id="nextBtn"
+          onclick="passoProximo()"
         >
 
           Continuar →
@@ -2023,13 +1861,10 @@ function renderWizard() {
 
 
 /* =====================================================
-   BOTÕES DO WIZARD
+   ATUALIZAR BOTÕES
 ===================================================== */
 
 function updateWizardButtons() {
-
-  const total = 5;
-
 
   const prev =
     document.getElementById(
@@ -2043,7 +1878,7 @@ function updateWizardButtons() {
     );
 
 
-  const num =
+  const number =
     document.getElementById(
       "stepNumber"
     );
@@ -2052,11 +1887,9 @@ function updateWizardButtons() {
   if (
     !prev ||
     !next ||
-    !num
+    !number
   ) {
-
     return;
-
   }
 
 
@@ -2064,12 +1897,12 @@ function updateWizardButtons() {
     passoAtual === 1;
 
 
-  num.textContent =
+  number.textContent =
     passoAtual;
 
 
   next.textContent =
-    passoAtual === total
+    passoAtual === 5
       ? "Enviar anamnese ✓"
       : "Continuar →";
 
@@ -2105,9 +1938,7 @@ function validarPasso() {
 
 
   if (!step) {
-
     return true;
-
   }
 
 
@@ -2118,8 +1949,7 @@ function validarPasso() {
 
 
   for (
-    const element
-    of required
+    const element of required
   ) {
 
     if (
@@ -2141,7 +1971,7 @@ function validarPasso() {
 
 
 /* =====================================================
-   PRÓXIMA ETAPA
+   PRÓXIMO PASSO
 ===================================================== */
 
 function passoProximo() {
@@ -2149,9 +1979,7 @@ function passoProximo() {
   if (
     !validarPasso()
   ) {
-
     return;
-
   }
 
 
@@ -2168,22 +1996,26 @@ function passoProximo() {
   }
 
 
-  prepararEnvio({
+  const form =
+    document.getElementById(
+      "areaForm"
+    );
 
-    preventDefault() {},
 
-    target:
-      document.getElementById(
-        "areaForm"
-      )
+  if (form) {
 
-  });
+    prepararEnvio({
+      preventDefault() {},
+      target: form
+    });
+
+  }
 
 }
 
 
 /* =====================================================
-   VOLTAR ETAPA
+   PASSO ANTERIOR
 ===================================================== */
 
 function passoAnterior() {
@@ -2207,7 +2039,59 @@ function passoAnterior() {
 
 
 /* =====================================================
-   ENVIO DO FORMULÁRIO
+   CONVERTER FORM DATA EM OBJETO
+===================================================== */
+
+function formDataToObject(form) {
+
+  const formData =
+    new FormData(form);
+
+
+  const data = {};
+
+
+  formData.forEach(
+    (value, key) => {
+
+      if (
+        key.endsWith("[]")
+      ) {
+
+        const cleanKey =
+          key.slice(0, -2);
+
+
+        if (
+          !Array.isArray(
+            data[cleanKey]
+          )
+        ) {
+
+          data[cleanKey] = [];
+
+        }
+
+
+        data[cleanKey].push(value);
+
+      } else {
+
+        data[key] = value;
+
+      }
+
+    }
+  );
+
+
+  return data;
+
+}
+
+
+/* =====================================================
+   ENVIO CORRETO AO FORMSUBMIT
 ===================================================== */
 
 async function prepararEnvio(event) {
@@ -2215,17 +2099,20 @@ async function prepararEnvio(event) {
   event.preventDefault();
 
 
-  if (
-    !validarPasso()
-  ) {
+  const form =
+    event.target;
 
+
+  if (!form) {
     return;
-
   }
 
 
-  const form =
-    event.target;
+  if (
+    !validarPasso()
+  ) {
+    return;
+  }
 
 
   const button =
@@ -2235,68 +2122,70 @@ async function prepararEnvio(event) {
 
 
   const dados =
-    new FormData(form);
+    formDataToObject(form);
 
 
-  dados.append(
-    "_subject",
+  /*
+   * Identificação da cliente
+   */
 
-    `Nova Anamnese ${
-      areaAtual.toUpperCase()
-    } - ${
-      cadastro.nome
-    }`
-  );
+  dados.cliente_nome =
+    cadastro.nome || "";
 
 
-  dados.append(
-    "_template",
-    "table"
-  );
+  dados.cliente_email =
+    cadastro.email || "";
 
 
-  dados.append(
-    "_captcha",
-    "false"
-  );
+  dados.cliente_celular =
+    cadastro.celular || "";
 
 
-  dados.append(
-    "_replyto",
-    cadastro.email
-  );
+  dados.area_atendimento =
+    areaAtual;
 
 
-  dados.append(
-    "cliente_nome",
-    cadastro.nome
-  );
+  /*
+   * Configurações do FormSubmit
+   */
+
+  dados._subject =
+    `Nova Anamnese ${areaAtual.toUpperCase()} - ${cadastro.nome || "Cliente"}`;
 
 
-  dados.append(
-    "cliente_email",
-    cadastro.email
-  );
+  dados._replyto =
+    cadastro.email || "";
 
 
-  dados.append(
-    "cliente_celular",
-    cadastro.celular
-  );
+  dados._template =
+    "table";
 
 
-  dados.append(
-    "area_atendimento",
-    areaAtual
-  );
+  dados._captcha =
+    "false";
 
 
-  button.disabled =
-    true;
+  /*
+   * Informa a URL do site
+   */
+
+  dados._url =
+    window.location.href;
 
 
-  button.textContent =
-    "Enviando...";
+  /*
+   * Estado do botão
+   */
+
+  if (button) {
+
+    button.disabled =
+      true;
+
+    button.textContent =
+      "Enviando...";
+
+  }
 
 
   try {
@@ -2305,29 +2194,74 @@ async function prepararEnvio(event) {
       await fetch(
         FORM_ENDPOINT,
         {
+
           method: "POST",
 
-          body: dados,
-
           headers: {
-            Accept:
+
+            "Content-Type":
+              "application/json",
+
+            "Accept":
               "application/json"
-          }
+
+          },
+
+          body:
+            JSON.stringify(dados)
 
         }
       );
 
+
+    const resultado =
+      await response.json();
+
+
+    console.log(
+      "Resposta do FormSubmit:",
+      resultado
+    );
+
+
+    /*
+     * Caso o servidor responda erro
+     */
 
     if (
       !response.ok
     ) {
 
       throw new Error(
-        "Falha no envio"
+        resultado.message ||
+        "O servidor recusou o envio."
       );
 
     }
 
+
+    /*
+     * Algumas respostas
+     * do FormSubmit podem indicar
+     * que o endereço ainda precisa
+     * ser ativado.
+     */
+
+    if (
+      resultado.success === false
+    ) {
+
+      throw new Error(
+        resultado.message ||
+        "O formulário ainda não está ativo."
+      );
+
+    }
+
+
+    /*
+     * Tudo certo
+     */
 
     goTo("sucesso");
 
@@ -2335,22 +2269,26 @@ async function prepararEnvio(event) {
   } catch (error) {
 
     console.error(
+      "Erro no FormSubmit:",
       error
     );
 
 
-    button.disabled =
-      false;
+    if (button) {
 
+      button.disabled =
+        false;
 
-    button.textContent =
-      "Enviar anamnese ✓";
+      button.textContent =
+        "Enviar anamnese ✓";
+
+    }
 
 
     alert(
-
-      "O envio não foi concluído. Depois de publicar o site, confirme o endereço ligianecastro84@gmail.com no FormSubmit na primeira solicitação."
-
+      "A ficha não foi enviada. Se esta é a primeira utilização, verifique o e-mail " +
+      DESTINO_EMAIL +
+      " e a pasta de spam para ativar o formulário."
     );
 
   }
